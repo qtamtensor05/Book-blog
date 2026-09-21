@@ -18,7 +18,7 @@ export function startShelfAutoplay({ canAdvance, advance }) {
     button.dataset.enabled = String(enabled);
   }
 
-  function schedule(delay = 4000) {
+  function schedule(delay = 2000) {
     clearTimeout(timer);
     if (disposed || !enabled || reducedMotion.matches || document.hidden) return;
     timer = setTimeout(() => {

@@ -4,14 +4,6 @@ Exact-source integration of ThreeUI's `CompleteShelfLandingPage`.
 
 ## Cuốn mẫu Book-blog
 
-Ứng dụng hiện thay cuốn đầu tiên bằng **Book-blog**, gồm 8 trang tiếng Việt giới thiệu chính dự án: giới thiệu, ý tưởng, khám phá kệ, mở và đọc, công nghệ, cấu trúc, cách chạy và hướng phát triển. Sáu cuốn còn lại giữ nguyên.
-
-- Sửa tên, mô tả và nội dung trang trong `public/landing-pages/book-blog-content.js`.
-- `book-blog-textures.js` vẽ bìa và chữ lên các trang, tự xuống dòng theo độ rộng chữ. Trang tùy biến dùng texture độ phân giải cao để giữ dấu tiếng Việt rõ hơn.
-- `npm run dev` và `npm run build` tự sinh `book-blog-shelf.html` từ HTML gốc qua `scripts/generate-project-shelf.mjs`. Không sửa trực tiếp file sinh ra.
-- `src/ProjectShelfLandingPage.tsx` nạp bản tùy biến với cùng cấu hình typography. Component và bốn file nguồn ThreeUI gốc vẫn được giữ nguyên và kiểm tra hash.
-- Để trở lại bản gốc, dùng `CompleteShelfLandingPage` từ `@designcodeio/threeui` trong `src/Scene.tsx`.
-
 ```sh
 npm install
 npm run dev

@@ -11,6 +11,8 @@ function replaceOnce(anchor, replacement) {
 }
 replaceOnce('    const BOOKS = [', `    import { projectBook } from "./book-blog-content.js";
     import { makeProjectCover, makeProjectPages } from "./book-blog-textures.js";
+    import { startShelfAutoplay } from "./shelf-autoplay.js";
+    let disposeAutoplay = () => {};
 
     const BOOKS = [`);
 replaceOnce('    const COVER_CROPS = [', `    Object.assign(BOOKS[0], projectBook);
@@ -22,6 +24,34 @@ replaceOnce('    function makeInteriorPageTextures(book) {', `    function makeI
       if (book.pages) return makeProjectPages(book, THREE, configureCanvasTexture, drawPaperSurface, seededRandom);`);
 replaceOnce('    function getSpreadLabels(book) {', `    function getSpreadLabels(book) {
       if (book.spreadLabels) return book.spreadLabels;`);
+replaceOnce('  </style>', `    .shelf-autoplay {
+      margin-top: 9px;
+      padding: 6px 0;
+      border: 0;
+      border-bottom: 1px solid currentColor;
+      color: var(--ink-soft);
+      background: transparent;
+      font: 400 11px var(--mono);
+      cursor: pointer;
+      pointer-events: auto;
+    }
+    .shelf-autoplay:disabled { cursor: default; border-color: transparent; }
+    .mode-detail .shelf-autoplay { visibility: hidden; }
+  </style>`);
+replaceOnce('    function disposeExperience() {', `    function disposeExperience() {
+      disposeAutoplay();`);
+replaceOnce('    function handleContextLost(event) {', `    function handleContextLost(event) {
+      disposeAutoplay();`);
+replaceOnce('      experience.classList.add("webgl-ready");', `      experience.classList.add("webgl-ready");
+      disposeAutoplay = startShelfAutoplay({
+        canAdvance: () => mode === "hero" && !suspended && hoveredIndex < 0
+          && Math.abs(position - targetPosition) < 0.01,
+        advance: () => {
+          targetPosition = Math.round(targetPosition) + 1;
+          updateSelection(mod(targetPosition, BOOKS.length), false);
+          requestFrame();
+        }
+      });`);
 replaceOnce('        await document.fonts.load("600 82px Inter");', `        await document.fonts.load("600 82px Inter");
         await document.fonts.load("400 20px Inter", "Giới thiệu dự án");
         await document.fonts.load("500 34px Inter", "Giới thiệu dự án");`);

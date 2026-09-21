@@ -4,6 +4,8 @@ Exact-source integration of ThreeUI's `CompleteShelfLandingPage`.
 
 ## GitHub Pages
 
+Kệ sách tự chuyển sang cuốn tiếp theo mỗi 4 giây. Khi rê chuột lên sách hoặc mở sách, kệ tạm dừng; sau thao tác chuột/phím, chờ 8 giây trước khi tự chạy lại. Có nút **Tạm dừng tự chạy / Tiếp tục tự chạy** ở góc trên bên phải. Tự chạy tắt khi người xem bật giảm chuyển động và tạm ngưng khi tab bị ẩn.
+
 Trang giới thiệu: https://qtamtensor05.github.io/Book-blog/
 
 Workflow `.github/workflows/pages.yml` build và triển khai khi push lên `main`, hoặc chạy thủ công từ tab Actions. Dùng GitHub Pages của repository public và runner tiêu chuẩn `ubuntu-latest`; không cần server, tên miền trả phí hay API key. Artifact chỉ lưu 1 ngày.

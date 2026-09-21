@@ -2,6 +2,20 @@
 
 Exact-source integration of ThreeUI's `CompleteShelfLandingPage`.
 
+## GitHub Pages
+
+Trang giới thiệu: https://qtamtensor05.github.io/Book-blog/
+
+Workflow `.github/workflows/pages.yml` build và triển khai khi push lên `main`, hoặc chạy thủ công từ tab Actions. Dùng GitHub Pages của repository public và runner tiêu chuẩn `ubuntu-latest`; không cần server, tên miền trả phí hay API key. Artifact chỉ lưu 1 ngày.
+
+Trong Settings → Pages, chọn Source: **GitHub Actions**. Đường dẫn repository được lấy từ cấu hình Pages; iframe và tài nguyên dùng cùng base path. Có thể kiểm tra local bằng biến môi trường `PAGES_BASE_PATH=/Book-blog/` khi build, rồi mở `/Book-blog/` trên preview server.
+
+Thêm vào README profile để dẫn người xem tới kệ sách:
+
+```md
+[📚 Khám phá kệ sách Book-blog](https://qtamtensor05.github.io/Book-blog/)
+```
+
 ## Cuốn mẫu Book-blog
 
 ```sh

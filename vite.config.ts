@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 
 // Resolve the requested public imports to the verified, local source revision.
 export default defineConfig({
+  base: process.env.PAGES_BASE_PATH || "/",
   plugins: [react()],
   optimizeDeps: { entries: ["index.html"] },
   resolve: {

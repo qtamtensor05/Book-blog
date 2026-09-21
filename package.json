@@ -1,0 +1,29 @@
+{
+  "name": "working-volumes",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "predev": "npm run generate:shelf",
+    "prebuild": "npm run generate:shelf",
+    "generate:shelf": "node scripts/generate-project-shelf.mjs",
+    "dev": "vite --host 127.0.0.1",
+    "build": "npm run verify:source && tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "verify:source": "node scripts/verify-source.mjs",
+    "test:browser": "node scripts/verify-browser.mjs"
+  },
+  "dependencies": {
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.6",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.1.1",
+    "playwright": "^1.56.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
+  }
+}

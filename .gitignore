@@ -1,0 +1,5 @@
+node_modules/
+dist/
+artifacts/
+*.log
+/public/landing-pages/book-blog-shelf.html
